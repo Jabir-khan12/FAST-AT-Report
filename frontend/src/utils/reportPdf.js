@@ -52,6 +52,31 @@ function getSelectedMarkCell(rating, score) {
   return selectedRating === targetScore ? String(targetScore) : '';
 }
 
+function buildObservationsList(response, orderedKeys, standards, standardTitles) {
+  const items = [];
+
+  const mainObservation = sanitizeText(response?.observations || '');
+  if (mainObservation) {
+    items.push(mainObservation);
+  }
+
+  orderedKeys.forEach((standardKey) => {
+    const questions = standards?.[standardKey] || [];
+    const suggestions = response?.questionSuggestions?.[standardKey] || [];
+    const standardLabel = sanitizeText(standardTitles?.[standardKey] || standardKey);
+
+    suggestions.forEach((suggestion, questionIndex) => {
+      const suggestionText = sanitizeText(suggestion);
+      if (!suggestionText) return;
+
+      const questionText = sanitizeText(questions[questionIndex] || `Question ${questionIndex + 1}`);
+      items.push(`${standardLabel} | Q${questionIndex + 1}: ${questionText} | Suggestion: ${suggestionText}`);
+    });
+  });
+
+  return items.length ? items : ['No observations or suggestions provided.'];
+}
+
 function renderCoverPage(doc, response, titleText) {
   const pageWidth = doc.internal.pageSize.getWidth();
   const pageHeight = doc.internal.pageSize.getHeight();
@@ -433,7 +458,8 @@ export async function generateAssessmentReportPdf({
     if (responseIndex > 0) doc.addPage();
 
     await renderCoverPage(doc, response, 'Institutional Quality Assessment & Effectiveness, Peshawar Campus');
-    renderObservationsPage(doc, response, [{ observations: response?.observations || 'No observations provided.' }]);
+    const observationsList = buildObservationsList(response, orderedKeys, standards, standardTitles);
+    renderObservationsPage(doc, response, observationsList);
 
     const cumulativeScores = [];
     orderedKeys.forEach((standardKey, index) => {
