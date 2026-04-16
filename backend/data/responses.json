@@ -1,0 +1,757 @@
+{
+  "responses": [
+    {
+      "evaluatorName": "jabir test 2nd",
+      "institutionName": "FAST",
+      "programName": "AI",
+      "date": "2026-04-15",
+      "observations": "Lorem ipsum is a placeholder text used in design and publishing to preview layouts without distracting content. Originating from a corrupted version of Cicero’s Latin text, it has no meaningful content but effectively simulates real text for visual representation in mockups. Widely used in web development and graphic design, it helps designers focus on structure and aesthetics. Despite its randomness, it remains a standard tool for prototyping.",
+      "standard1": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        4,
+        3,
+        2
+      ],
+      "standard2": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        4,
+        3
+      ],
+      "standard3": [
+        2,
+        1,
+        2,
+        3
+      ],
+      "standard4": [
+        4,
+        5,
+        4
+      ],
+      "standard5": [
+        4,
+        3,
+        2,
+        3,
+        4,
+        1,
+        3,
+        3
+      ],
+      "standard6": [
+        2,
+        1,
+        4,
+        5,
+        4,
+        5,
+        4,
+        3,
+        2,
+        1,
+        1,
+        2,
+        2,
+        2
+      ],
+      "standard7": [
+        3,
+        5,
+        4,
+        4,
+        5,
+        5
+      ],
+      "questionSuggestions": {
+        "standard1": [
+          "suggestions for s1 q1",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "standard2": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "standard3": [
+          "",
+          "",
+          "",
+          ""
+        ],
+        "standard4": [
+          "",
+          "",
+          ""
+        ],
+        "standard5": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "standard6": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "standard7": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "suggestions for s7 q6"
+        ]
+      },
+      "standardScores": {
+        "standard1": {
+          "total": 24,
+          "normalized": 60,
+          "weightedScore": 3
+        },
+        "standard2": {
+          "total": 22,
+          "normalized": 62.857142857142854,
+          "weightedScore": 12.571428571428571
+        },
+        "standard3": {
+          "total": 8,
+          "normalized": 40,
+          "weightedScore": 4
+        },
+        "standard4": {
+          "total": 13,
+          "normalized": 86.66666666666667,
+          "weightedScore": 8.666666666666668
+        },
+        "standard5": {
+          "total": 23,
+          "normalized": 57.49999999999999,
+          "weightedScore": 11.5
+        },
+        "standard6": {
+          "total": 38,
+          "normalized": 54.285714285714285,
+          "weightedScore": 8.142857142857142
+        },
+        "standard7": {
+          "total": 26,
+          "normalized": 86.66666666666667,
+          "weightedScore": 8.666666666666668
+        }
+      },
+      "overallScore": 56.55,
+      "id": "1776233177954-kvazb8",
+      "createdAt": "2026-04-15T06:06:17.954Z"
+    },
+    {
+      "evaluatorName": "QEC Tester",
+      "institutionName": "FAST",
+      "programName": "AI",
+      "date": "2026-04-15",
+      "observations": "Lorem ipsum is a placeholder text used in design and publishing to preview layouts without distracting content. Originating from a corrupted version of Cicero’s Latin text, it has no meaningful content but effectively simulates real text for visual representation in mockups. Widely used in web development and graphic design, it helps designers focus on structure and aesthetics. Despite its randomness, it remains a standard tool for prototyping.",
+      "standard1": [
+        5,
+        5,
+        4,
+        4,
+        3,
+        4,
+        4,
+        4
+      ],
+      "standard2": [
+        5,
+        4,
+        2,
+        4,
+        4,
+        4,
+        4
+      ],
+      "standard3": [
+        4,
+        4,
+        4,
+        3
+      ],
+      "standard4": [
+        5,
+        4,
+        4
+      ],
+      "standard5": [
+        3,
+        3,
+        4,
+        3,
+        4,
+        3,
+        4,
+        3
+      ],
+      "standard6": [
+        4,
+        2,
+        1,
+        1,
+        4,
+        5,
+        3,
+        2,
+        2,
+        1,
+        3,
+        2,
+        2,
+        3
+      ],
+      "standard7": [
+        3,
+        4,
+        2,
+        4,
+        5,
+        1
+      ],
+      "questionSuggestions": {
+        "standard1": [
+          "this is suggestion with q 1\n",
+          "",
+          "",
+          "",
+          "",
+          "this is suggestion with q 6",
+          "",
+          ""
+        ],
+        "standard2": [
+          "",
+          "",
+          "this is suggestion with s2 q 3 ",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "standard3": [
+          "",
+          "",
+          "",
+          ""
+        ],
+        "standard4": [
+          "",
+          "",
+          ""
+        ],
+        "standard5": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "standard6": [
+          "",
+          "",
+          "",
+          "this is suggestion with s6 q 4",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "standard7": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "this is suggestion with s7 q 6"
+        ]
+      },
+      "standardScores": {
+        "standard1": {
+          "total": 33,
+          "normalized": 82.5,
+          "weightedScore": 4.125
+        },
+        "standard2": {
+          "total": 27,
+          "normalized": 77.14285714285715,
+          "weightedScore": 15.42857142857143
+        },
+        "standard3": {
+          "total": 15,
+          "normalized": 75,
+          "weightedScore": 7.5
+        },
+        "standard4": {
+          "total": 13,
+          "normalized": 86.66666666666667,
+          "weightedScore": 8.666666666666668
+        },
+        "standard5": {
+          "total": 27,
+          "normalized": 67.5,
+          "weightedScore": 13.5
+        },
+        "standard6": {
+          "total": 35,
+          "normalized": 50,
+          "weightedScore": 7.5
+        },
+        "standard7": {
+          "total": 19,
+          "normalized": 63.33333333333333,
+          "weightedScore": 6.333333333333333
+        }
+      },
+      "overallScore": 63.05,
+      "id": "1776230171514-ru53wt",
+      "createdAt": "2026-04-15T05:16:11.515Z"
+    },
+    {
+      "evaluatorName": "Suggestion Tester",
+      "institutionName": "FAST University",
+      "programName": "BS Artificial Intelligence",
+      "date": "2026-04-15",
+      "standard1": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "standard2": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "standard3": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "standard4": [
+        4,
+        4,
+        4
+      ],
+      "standard5": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "standard6": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "standard7": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "questionSuggestions": {
+        "standard1": [
+          "Improve PEO visibility",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "standard2": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "standard3": [
+          "",
+          "",
+          "",
+          ""
+        ],
+        "standard4": [
+          "",
+          "",
+          ""
+        ],
+        "standard5": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "standard6": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "standard7": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ]
+      },
+      "observations": "Submission containing per-question suggestion.",
+      "standardScores": {
+        "standard1": {
+          "total": 32,
+          "normalized": 80,
+          "weightedScore": 4
+        },
+        "standard2": {
+          "total": 28,
+          "normalized": 80,
+          "weightedScore": 16
+        },
+        "standard3": {
+          "total": 16,
+          "normalized": 80,
+          "weightedScore": 8
+        },
+        "standard4": {
+          "total": 12,
+          "normalized": 80,
+          "weightedScore": 8
+        },
+        "standard5": {
+          "total": 32,
+          "normalized": 80,
+          "weightedScore": 16
+        },
+        "standard6": {
+          "total": 56,
+          "normalized": 80,
+          "weightedScore": 12
+        },
+        "standard7": {
+          "total": 24,
+          "normalized": 80,
+          "weightedScore": 8
+        }
+      },
+      "overallScore": 72,
+      "id": "1776228201318-uu1pun",
+      "createdAt": "2026-04-15T04:43:21.318Z"
+    },
+    {
+      "evaluatorName": "Jabir",
+      "institutionName": "FAST ",
+      "programName": "AI",
+      "date": "2026-04-15",
+      "observations": "\nLorem Ipsum is a standard placeholder text used in design and publishing to fill space without distracting from layout.\nA typical Lorem Ipsum paragraph reads: \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\" This text is nonsensical in meaning but mimics the distribution of letters in English, making it ideal for layout testing. \nLorem Ipsum\n+2\nOrigin and Purpose\nLorem Ipsum originates from Cicero's 1st-century BC work \"De finibus bonorum et malorum\", a treatise on ethics. The first two words, \"Lorem ipsum,\" are derived from the Latin phrase dolorem ipsum, meaning \"pain itself\". It became widely used in the 1500s when printers scrambled type to create specimen books, and it gained popularity in the 1960s with Letraset sheets and later in digital desktop publishing software like Aldus PageMaker. \nLorem Ipsum\n+3\nUsage\nDesigners and developers use Lorem Ipsum to:\nTest layouts without distraction from meaningful content\nDemonstrate fonts and typography\nMaintain visual balance in templates and mockups\nModern tools allow generating customizable Lorem Ipsum text in any number of words, sentences, or paragraphs, in formats like plain text, HTML, or Markdown. This ensures flexibility for web design, print, and digital publishing projects.",
+      "standard1": [
+        5,
+        5,
+        5,
+        5,
+        4,
+        2,
+        2,
+        2
+      ],
+      "standard2": [
+        4,
+        3,
+        3,
+        2,
+        3,
+        4,
+        5
+      ],
+      "standard3": [
+        5,
+        4,
+        3,
+        3
+      ],
+      "standard4": [
+        5,
+        4,
+        2
+      ],
+      "standard5": [
+        1,
+        2,
+        2,
+        3,
+        4,
+        5,
+        4,
+        4
+      ],
+      "standard6": [
+        4,
+        5,
+        3,
+        4,
+        5,
+        3,
+        3,
+        4,
+        3,
+        4,
+        4,
+        4,
+        4,
+        3
+      ],
+      "standard7": [
+        5,
+        4,
+        3,
+        2,
+        2,
+        1
+      ],
+      "standardScores": {
+        "standard1": {
+          "total": 30,
+          "normalized": 75,
+          "weightedScore": 3.75
+        },
+        "standard2": {
+          "total": 24,
+          "normalized": 68.57142857142857,
+          "weightedScore": 13.714285714285715
+        },
+        "standard3": {
+          "total": 15,
+          "normalized": 75,
+          "weightedScore": 7.5
+        },
+        "standard4": {
+          "total": 11,
+          "normalized": 73.33333333333333,
+          "weightedScore": 7.333333333333333
+        },
+        "standard5": {
+          "total": 25,
+          "normalized": 62.5,
+          "weightedScore": 12.5
+        },
+        "standard6": {
+          "total": 53,
+          "normalized": 75.71428571428571,
+          "weightedScore": 11.357142857142856
+        },
+        "standard7": {
+          "total": 17,
+          "normalized": 56.666666666666664,
+          "weightedScore": 5.666666666666667
+        }
+      },
+      "overallScore": 61.82,
+      "id": "1776227026839-o937qj",
+      "createdAt": "2026-04-15T04:23:46.839Z"
+    },
+    {
+      "evaluatorName": "Smoke Tester",
+      "institutionName": "FAST University",
+      "programName": "BS Artificial Intelligence",
+      "date": "2026-04-14",
+      "standard1": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "standard2": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "standard3": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "standard4": [
+        4,
+        4,
+        4
+      ],
+      "standard5": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "standard6": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "standard7": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "observations": "Smoke test submission for API verification.",
+      "standardScores": {
+        "standard1": {
+          "total": 32,
+          "normalized": 80,
+          "weightedScore": 4
+        },
+        "standard2": {
+          "total": 28,
+          "normalized": 80,
+          "weightedScore": 16
+        },
+        "standard3": {
+          "total": 16,
+          "normalized": 80,
+          "weightedScore": 8
+        },
+        "standard4": {
+          "total": 12,
+          "normalized": 80,
+          "weightedScore": 8
+        },
+        "standard5": {
+          "total": 32,
+          "normalized": 80,
+          "weightedScore": 16
+        },
+        "standard6": {
+          "total": 56,
+          "normalized": 80,
+          "weightedScore": 12
+        },
+        "standard7": {
+          "total": 24,
+          "normalized": 80,
+          "weightedScore": 8
+        }
+      },
+      "overallScore": 72,
+      "id": "1776164783713-nvpdww",
+      "createdAt": "2026-04-14T11:06:23.713Z"
+    }
+  ]
+}
