@@ -1,10 +1,4 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": "frontend/dist",
-  "redirects": [
-    {
-      "source": "/api/:path*",
-      "destination": "/api/:path*"
-    }
-  ]
+  "outputDirectory": "frontend/dist"
 }
