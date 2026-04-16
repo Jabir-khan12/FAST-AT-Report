@@ -96,6 +96,21 @@ export default function App() {
     loadMeta();
   }, []);
 
+    // Clear stale session storage on app load (after credential updates)
+    useEffect(() => {
+      const clearStaleSession = () => {
+        const storedUsername = sessionStorage.getItem('adminUsername');
+        // If session has old credentials, clear it to force re-login
+        if (storedUsername && storedUsername !== 'qecfast') {
+          sessionStorage.removeItem('adminToken');
+          sessionStorage.removeItem('adminUsername');
+          setAdminToken('');
+          setAdminUsername('');
+        }
+      };
+      clearStaleSession();
+    }, []);
+
   async function fetchDashboard(authToken = adminToken) {
     const query = new URLSearchParams();
     if (filters.evaluator) query.set('evaluator', filters.evaluator);
