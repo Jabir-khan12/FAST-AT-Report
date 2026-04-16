@@ -9,6 +9,7 @@
     "frontend:dev": "cd frontend && npm run dev",
     "backend:start": "cd backend && npm start",
     "frontend:build": "cd frontend && npm run build",
+    "build": "npm run frontend:build",
     "start": "npm run backend:start"
   },
   "keywords": [],
