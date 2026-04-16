@@ -386,7 +386,7 @@ export default function App() {
                 {adminError ? <p className="error">{adminError}</p> : null}
                 <button type="submit" className="submit-btn">Login as Admin</button>
               </form>
-              <p className="admin-hint">Default credentials: admin / admin123 (change via backend env).</p>
+              {/* Default credentials removed for security - configured via backend env */}
             </section>
           ) : (
             <AdminDashboard
