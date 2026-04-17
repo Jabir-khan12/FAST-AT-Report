@@ -13,6 +13,14 @@ const standardTitles = {
   standard7: 'Standard 7 - Institutional Support and Facilities',
 };
 
+const rubricRows = [
+  { score: 1, description: 'Poor performance in most of the areas.' },
+  { score: 2, description: 'Fair performance in most of the areas.' },
+  { score: 3, description: 'Good performance for most areas. No poor performance in any areas.' },
+  { score: 4, description: 'Good to excellent performance in all areas.' },
+  { score: 5, description: 'Excellent performance in most of the areas.' },
+];
+
 function makeInitialRatings(standards) {
   return Object.fromEntries(
     Object.entries(standards).map(([key, arr]) => [key, Array(arr.length).fill('')])
@@ -345,6 +353,29 @@ export default function App() {
               </label>
             </div>
           </form>
+
+          <section className="card rubric-card">
+            <h2>Rubric for Assessment Team</h2>
+            <p>Use the following scale for all standards and questions before submitting the assessment.</p>
+            <div className="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Score</th>
+                    <th>Performance Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {rubricRows.map((row) => (
+                    <tr key={row.score}>
+                      <td>{row.score}</td>
+                      <td>{row.description}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
 
           {standardKeys.map((key) => (
             <StandardSection

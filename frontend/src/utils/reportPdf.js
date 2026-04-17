@@ -178,6 +178,68 @@ function renderObservationsPage(doc, response, observationsList) {
   });
 }
 
+function renderRubricPage(doc) {
+  doc.addPage();
+  const pageWidth = doc.internal.pageSize.getWidth();
+  const primaryColor = [30, 58, 138];
+  const textColor = [51, 65, 85];
+  const headerFill = [241, 245, 249];
+  const borderColor = [226, 232, 240];
+
+  let y = 40;
+
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(18);
+  doc.setTextColor(...primaryColor);
+  doc.text('Rubric for Assessment Team', pageWidth / 2, y, { align: 'center' });
+  y += 18;
+
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(11);
+  doc.setTextColor(...textColor);
+  const intro = 'Use the following rubric to score each standard and question in the assessment form.';
+  const introLines = doc.splitTextToSize(intro, pageWidth - 40);
+  introLines.forEach((line) => {
+    doc.text(line, 20, y);
+    y += 14;
+  });
+  y += 6;
+
+  autoTable(doc, {
+    startY: y,
+    margin: { left: 20, right: 20 },
+    theme: 'grid',
+    head: [['Score', 'Performance Description']],
+    body: [
+      ['1', 'Poor performance in most of the areas.'],
+      ['2', 'Fair performance in most of the areas.'],
+      ['3', 'Good performance for most areas. No poor performance in any areas.'],
+      ['4', 'Good to excellent performance in all areas.'],
+      ['5', 'Excellent performance in most of the areas.'],
+    ],
+    styles: {
+      font: 'helvetica',
+      fontSize: 10,
+      cellPadding: 8,
+      valign: 'middle',
+      textColor: [71, 85, 105],
+      lineColor: borderColor,
+      lineWidth: 0.5,
+    },
+    headStyles: {
+      fillColor: headerFill,
+      textColor: primaryColor,
+      fontStyle: 'bold',
+      lineColor: borderColor,
+      lineWidth: 0.5,
+    },
+    columnStyles: {
+      0: { cellWidth: 70, halign: 'center', fontStyle: 'bold' },
+      1: { cellWidth: pageWidth - 110, halign: 'left' },
+    },
+  });
+}
+
 function renderStandardTable(doc, response, standardKey, questions, weight, titleText, index, cumulativeScores, isFirstStandard) {
   doc.addPage();
   const pageWidth = doc.internal.pageSize.getWidth();
@@ -458,6 +520,7 @@ export async function generateAssessmentReportPdf({
     if (responseIndex > 0) doc.addPage();
 
     await renderCoverPage(doc, response, 'Institutional Quality Assessment & Effectiveness, Peshawar Campus');
+    renderRubricPage(doc);
     const observationsList = buildObservationsList(response, orderedKeys, standards, standardTitles);
     renderObservationsPage(doc, response, observationsList);
 
@@ -466,8 +529,7 @@ export async function generateAssessmentReportPdf({
       const questions = standards[standardKey] || [];
       const weight = standardWeights[standardKey] ?? 0;
       const title = standardTitles?.[standardKey] || standardKey;
-      const isFirstStandard = index === 0;
-      renderStandardTable(doc, response, standardKey, questions, weight, title, index + 1, cumulativeScores, isFirstStandard);
+      renderStandardTable(doc, response, standardKey, questions, weight, title, index + 1, cumulativeScores, false);
     });
 
     renderCumulativePage(doc, response, cumulativeScores);
