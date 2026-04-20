@@ -40,6 +40,13 @@ function getStandardScore(response, standardKey) {
   return Number(score || 0).toFixed(2);
 }
 
+function calculateWeightedScoreFromRatings(response, standardKey, weight) {
+  const ratings = Array.isArray(response?.[standardKey]) ? response[standardKey] : [];
+  if (!ratings.length) return 0;
+  const totalValue = ratings.reduce((sum, value) => sum + Number(value || 0), 0);
+  return ((totalValue / (ratings.length * 5)) * 100 * Number(weight || 0));
+}
+
 function getStandardTotal(response, standardKey) {
   const ratings = Array.isArray(response?.[standardKey]) ? response[standardKey] : [];
   return ratings.reduce((sum, value) => sum + Number(value || 0), 0);
@@ -420,7 +427,9 @@ function renderStandardTable(doc, response, standardKey, questions, weight, titl
 
   const finalY = doc.lastAutoTable?.finalY || 210;
   const totalEncircledValue = getStandardTotal(response, standardKey);
-  const standardScore = getStandardScore(response, standardKey);
+  const storedScore = Number(getStandardScore(response, standardKey));
+  const computedScore = calculateWeightedScoreFromRatings(response, standardKey, weight);
+  const standardScore = Number.isFinite(storedScore) && storedScore > 0 ? storedScore : computedScore;
 
   autoTable(doc, {
     startY: finalY + 15,
@@ -434,7 +443,7 @@ function renderStandardTable(doc, response, standardKey, questions, weight, titl
       ],
       [
         { content: `Score ${index} (S${index}) = [TV / (No. of Questions × 5)] × 100 × Weight`, styles: { fontStyle: 'bold', textColor: textColor, fillColor: [248, 250, 252] } },
-        { content: standardScore, styles: { halign: 'center', fontStyle: 'bold', textColor: primaryColor, fillColor: [248, 250, 252] } }
+        { content: Number(standardScore).toFixed(2), styles: { halign: 'center', fontStyle: 'bold', textColor: primaryColor, fillColor: [248, 250, 252] } }
       ],
     ],
     columnStyles: { 0: { cellWidth: contentWidth - 80 }, 1: { halign: 'center', cellWidth: 80 } },
@@ -445,7 +454,7 @@ function renderStandardTable(doc, response, standardKey, questions, weight, titl
     standardKey,
     standardTitle: titleText,
     totalEncircledValue,
-    weightedScore: Number(standardScore),
+    weightedScore: Number(standardScore || 0),
     weight: Number(weight),
   });
 }
@@ -511,7 +520,9 @@ function renderCumulativePage(doc, response, cumulativeScores) {
     },
   });
 
-  const overall = Number(response?.overallScore || 0).toFixed(2);
+  const derivedOverall = cumulativeScores.reduce((sum, entry) => sum + Number(entry.weightedScore || 0), 0);
+  const responseOverall = Number(response?.overallScore || 0);
+  const overall = (responseOverall > 0 ? responseOverall : derivedOverall).toFixed(2);
   const tableBottom = doc.lastAutoTable?.finalY || 120;
   
   autoTable(doc, {
