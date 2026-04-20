@@ -382,6 +382,8 @@ export default function App() {
               key={key}
               standardKey={key}
               title={`${standardTitles[key]} (Weight=${Number(standardWeights[key] ?? 0).toFixed(2)})`}
+              weight={Number(standardWeights[key] ?? 0)}
+              standardNumber={Number(String(key).replace('standard', ''))}
               questions={standards[key]}
               values={ratings[key]}
               suggestions={questionSuggestions[key]}
