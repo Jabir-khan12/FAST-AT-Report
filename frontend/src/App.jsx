@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import StandardSection from './components/StandardSection';
 import AdminDashboard from './components/AdminDashboard';
-import { defaultStandards, standardWeights as defaultStandardWeights } from './data/defaultStandards';
+import { defaultStandards, standardWeights } from './data/defaultStandards';
 
 const standardTitles = {
   standard1: 'Standard 1 - Program Mission, Objectives and Outcomes',
@@ -67,7 +67,6 @@ export default function App() {
   const [adminError, setAdminError] = useState('');
   const [selectedResponse, setSelectedResponse] = useState(null);
   const [standards, setStandards] = useState(defaultStandards);
-  const [standardWeightsMap, setStandardWeightsMap] = useState(defaultStandardWeights);
   const [ratings, setRatings] = useState(makeInitialRatings(defaultStandards));
   const [questionSuggestions, setQuestionSuggestions] = useState(makeInitialSuggestions(defaultStandards));
   const [formInfo, setFormInfo] = useState({
@@ -97,9 +96,6 @@ export default function App() {
           setStandards(data.standards);
           setRatings(makeInitialRatings(data.standards));
           setQuestionSuggestions(makeInitialSuggestions(data.standards));
-        }
-        if (data.weights && typeof data.weights === 'object') {
-          setStandardWeightsMap((prev) => ({ ...prev, ...data.weights }));
         }
       } catch (e) {
         // keep default fallback
@@ -385,8 +381,7 @@ export default function App() {
             <StandardSection
               key={key}
               standardKey={key}
-              title={standardTitles[key]}
-              weight={standardWeightsMap[key]}
+              title={`${standardTitles[key]} (Weight=${Number(standardWeights[key] ?? 0).toFixed(2)})`}
               questions={standards[key]}
               values={ratings[key]}
               suggestions={questionSuggestions[key]}
@@ -446,7 +441,6 @@ export default function App() {
               onSelectResponse={setSelectedResponse}
               standards={standards}
               standardTitles={standardTitles}
-              standardWeightsMap={standardWeightsMap}
               evaluatorFilter={filters.evaluator}
               fromDate={filters.from}
               toDate={filters.to}
