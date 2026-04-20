@@ -1,6 +1,6 @@
 ﻿import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
-import { standardWeights } from '../data/defaultStandards';
+import { standardWeights as defaultStandardWeights } from '../data/defaultStandards';
 
 function formatDate(value) {
   if (!value) return '-';
@@ -178,7 +178,7 @@ function renderObservationsPage(doc, response, observationsList) {
   });
 }
 
-function renderRubricPage(doc) {
+function renderRubricPage(doc, orderedKeys, standardTitles, weightsMap) {
   doc.addPage();
   const pageWidth = doc.internal.pageSize.getWidth();
   const primaryColor = [30, 58, 138];
@@ -236,6 +236,39 @@ function renderRubricPage(doc) {
     columnStyles: {
       0: { cellWidth: 70, halign: 'center', fontStyle: 'bold' },
       1: { cellWidth: pageWidth - 110, halign: 'left' },
+    },
+  });
+
+  const weightTableStart = (doc.lastAutoTable?.finalY || y) + 18;
+  autoTable(doc, {
+    startY: weightTableStart,
+    margin: { left: 20, right: 20 },
+    theme: 'grid',
+    head: [['Standard', 'Weightage']],
+    body: orderedKeys.map((standardKey, idx) => {
+      const title = sanitizeText(standardTitles?.[standardKey] || `Standard ${idx + 1}`);
+      const weightPct = Number(weightsMap?.[standardKey] || 0) * 100;
+      return [title, `${weightPct.toFixed(0)}%`];
+    }),
+    styles: {
+      font: 'helvetica',
+      fontSize: 10,
+      cellPadding: 8,
+      valign: 'middle',
+      textColor: [71, 85, 105],
+      lineColor: borderColor,
+      lineWidth: 0.5,
+    },
+    headStyles: {
+      fillColor: headerFill,
+      textColor: primaryColor,
+      fontStyle: 'bold',
+      lineColor: borderColor,
+      lineWidth: 0.5,
+    },
+    columnStyles: {
+      0: { cellWidth: pageWidth - 150, halign: 'left' },
+      1: { cellWidth: 100, halign: 'center', fontStyle: 'bold' },
     },
   });
 }
@@ -510,24 +543,26 @@ export async function generateAssessmentReportPdf({
   selectedResponse,
   standardTitles,
   standards,
+  standardWeightsMap,
 }) {
   const reportResponses = scope === 'selected' && selectedResponse ? [selectedResponse] : (responses || []);
   const doc = new jsPDF({ unit: 'pt', format: 'a4' });
   const orderedKeys = Object.keys(standards || {});
+  const effectiveWeights = { ...defaultStandardWeights, ...(standardWeightsMap || {}) };
 
   for (let responseIndex = 0; responseIndex < reportResponses.length; responseIndex += 1) {
     const response = reportResponses[responseIndex];
     if (responseIndex > 0) doc.addPage();
 
     await renderCoverPage(doc, response, 'Institutional Quality Assessment & Effectiveness, Peshawar Campus');
-    renderRubricPage(doc);
+    renderRubricPage(doc, orderedKeys, standardTitles, effectiveWeights);
     const observationsList = buildObservationsList(response, orderedKeys, standards, standardTitles);
     renderObservationsPage(doc, response, observationsList);
 
     const cumulativeScores = [];
     orderedKeys.forEach((standardKey, index) => {
       const questions = standards[standardKey] || [];
-      const weight = standardWeights[standardKey] ?? 0;
+      const weight = effectiveWeights[standardKey] ?? 0;
       const title = standardTitles?.[standardKey] || standardKey;
       renderStandardTable(doc, response, standardKey, questions, weight, title, index + 1, cumulativeScores, false);
     });

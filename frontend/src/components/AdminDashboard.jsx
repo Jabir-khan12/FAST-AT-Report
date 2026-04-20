@@ -21,6 +21,7 @@ export default function AdminDashboard({
   onSelectResponse,
   standards,
   standardTitles,
+  standardWeightsMap,
   evaluatorFilter,
   fromDate,
   toDate,
@@ -259,6 +260,7 @@ export default function AdminDashboard({
       selectedResponse,
       standardTitles,
       standards,
+      standardWeightsMap,
     });
   }
 
@@ -269,6 +271,7 @@ export default function AdminDashboard({
       selectedResponse: row,
       standardTitles,
       standards,
+      standardWeightsMap,
     });
   }
 

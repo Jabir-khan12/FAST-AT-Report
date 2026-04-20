@@ -3,15 +3,21 @@ import QuestionBlock from './QuestionBlock';
 export default function StandardSection({
   standardKey,
   title,
+  weight,
   questions,
   values,
   suggestions,
   onSetValue,
   onSetSuggestion,
 }) {
+  const weightLabel = Number(weight || 0) * 100;
+
   return (
     <section className="card standard-card">
-      <h3>{title}</h3>
+      <div className="standard-title-row">
+        <h3>{title}</h3>
+        <span className="standard-weight-badge">Weightage: {weightLabel.toFixed(0)}%</span>
+      </div>
       {questions.map((q, index) => (
         <QuestionBlock
           key={`${standardKey}-${index}`}
